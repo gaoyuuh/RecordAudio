@@ -85,7 +85,7 @@ SingletonM
     if (!m_recordFile) {
         return;
     }
-    
+//    ExtAudioFileRef
     //    AudioStreamPacketDescription outputPacketDescriptions;
     OSStatus status = AudioFileWritePackets(m_recordFile,
                                             false,

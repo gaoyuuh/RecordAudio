@@ -38,42 +38,42 @@ static OSStatus AudioCaptureCallback(void                       *inRefCon,
                                      UInt32                     inBusNumber,
                                      UInt32                     inNumberFrames,
                                      AudioBufferList            *ioData) {
-    AudioUnitRender(m_audioUnit, ioActionFlags, inTimeStamp, inBusNumber, inNumberFrames, m_buffList);
+    AudioUnitRender(m_audioUnit, ioActionFlags, inTimeStamp, inBusNumber, inNumberFrames, ioData);
     
     if (g_av_base_time == 0) {
         return noErr;
     }
-    
+
     XDXAudioCaptureManager *manager = (__bridge XDXAudioCaptureManager *)inRefCon;
-    
+
     Float64 currentTime = CMTimeGetSeconds(CMClockMakeHostTimeFromSystemUnits(inTimeStamp->mHostTime));
     int64_t pts = (int64_t)((currentTime - g_av_base_time) * 1000);
-    
+
     /*  Test audio fps
      static Float64 lastTime = 0;
      Float64 currentTime = CMTimeGetSeconds(CMClockMakeHostTimeFromSystemUnits(inTimeStamp->mHostTime))*1000;
      NSLog(@"Test duration - %f",currentTime - lastTime);
      lastTime = currentTime;
      */
-    
+
     void    *bufferData = m_buffList->mBuffers[0].mData;
     UInt32   bufferSize = m_buffList->mBuffers[0].mDataByteSize;
-    
+
     //    NSLog(@"demon = %d",bufferSize);
-    
+
     struct XDXCaptureAudioData audioData = {
         .data           = bufferData,
         .size           = bufferSize,
         .inNumberFrames = inNumberFrames,
         .pts            = pts,
     };
-    
+
     XDXCaptureAudioDataRef audioDataRef = &audioData;
-    
+
     if ([manager.delegate respondsToSelector:@selector(receiveAudioDataByDevice:)]) {
         [manager.delegate receiveAudioDataByDevice:audioDataRef];
     }
-        
+
     return noErr;
 }
 
@@ -226,7 +226,7 @@ static OSStatus AudioCaptureCallback(void                       *inRefCon,
     AudioUnit audioUnit;
     AudioComponentDescription audioDesc;
     audioDesc.componentType         = kAudioUnitType_Output;
-    audioDesc.componentSubType      = kAudioUnitSubType_VoiceProcessingIO;//kAudioUnitSubType_RemoteIO;
+    audioDesc.componentSubType      = kAudioUnitSubType_RemoteIO;//kAudioUnitSubType_RemoteIO;
     audioDesc.componentManufacturer = kAudioUnitManufacturer_Apple;
     audioDesc.componentFlags        = 0;
     audioDesc.componentFlagsMask    = 0;
@@ -297,16 +297,16 @@ static OSStatus AudioCaptureCallback(void                       *inRefCon,
         NSLog(@"%@:  %s - could not enable input on AURemoteIO, status : %d \n",kModuleName, __func__, status);
     }
     
-    UInt32 disableFlag = 0;
-    status = AudioUnitSetProperty(audioUnit,
-                                  kAudioOutputUnitProperty_EnableIO,
-                                  kAudioUnitScope_Output,
-                                  OUTPUT_BUS,
-                                  &disableFlag,
-                                  sizeof(disableFlag));
-    if (status != noErr) {
-        NSLog(@"%@:  %s - could not enable output on AURemoteIO, status : %d \n",kModuleName, __func__,status);
-    }
+//    UInt32 disableFlag = 0;
+//    status = AudioUnitSetProperty(audioUnit,
+//                                  kAudioOutputUnitProperty_EnableIO,
+//                                  kAudioUnitScope_Output,
+//                                  OUTPUT_BUS,
+//                                  &disableFlag,
+//                                  sizeof(disableFlag));
+//    if (status != noErr) {
+//        NSLog(@"%@:  %s - could not enable output on AURemoteIO, status : %d \n",kModuleName, __func__,status);
+//    }
 }
 
 - (void)initCaptureCallbackWithAudioUnit:(AudioUnit)audioUnit callBack:(AURenderCallback)callBack {

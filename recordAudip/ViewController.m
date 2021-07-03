@@ -9,6 +9,7 @@
 #import "RecordController.h"
 #import "AVAudioEngineController.h"
 #import "AVAudioRecorderController.h"
+#import "AudioUnitController.h"
 
 @interface ViewController ()
 
@@ -70,6 +71,14 @@
 - (IBAction)audioEngineAction:(id)sender {
     AVAudioEngineController *evc = [[AVAudioEngineController alloc] init];
     [self presentViewController:evc animated:YES completion:nil];
+}
+
+
+#pragma mark - AudioUnit
+
+- (IBAction)audioUnitAction:(id)sender {
+    AudioUnitController *avc = [[AudioUnitController alloc] init];
+    [self presentViewController:avc animated:YES completion:nil];
 }
 
 @end

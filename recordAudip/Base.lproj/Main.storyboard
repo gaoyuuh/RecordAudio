@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXh-Nx-SJe">
-                                <rect key="frame" x="110" y="159" width="194" height="67"/>
+                                <rect key="frame" x="125" y="159" width="164" height="67"/>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.71764705880000002" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="SU9-8A-1hC"/>
-                                    <constraint firstAttribute="width" constant="194" id="y3z-Bd-grg"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="164" id="8t6-Ne-Pxi"/>
+                                    <constraint firstAttribute="height" constant="67" id="tgG-yD-a7Z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="AVAudioRecorder">
@@ -32,11 +32,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rf-6O-fFD">
-                                <rect key="frame" x="110" y="311" width="194" height="67"/>
+                                <rect key="frame" x="125" y="257" width="164" height="67"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="EPC-mI-0fz"/>
-                                    <constraint firstAttribute="width" constant="194" id="uUp-S0-6Dk"/>
+                                    <constraint firstAttribute="height" constant="67" id="EiA-Gf-exC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="164" id="lkB-lr-MxS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="AudioQueue">
@@ -46,12 +46,27 @@
                                     <action selector="audioQueueAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fWH-2a-beu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIu-O8-4mu">
+                                <rect key="frame" x="125" y="367" width="164" height="67"/>
+                                <color key="backgroundColor" red="1" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="164" id="KXC-5x-Biy"/>
+                                    <constraint firstAttribute="height" constant="67" id="LcY-Gr-xal"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="AudioUnit">
+                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="audioUnitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fe5-23-Zle"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIN-4r-pWk">
-                                <rect key="frame" x="110" y="454" width="194" height="67"/>
+                                <rect key="frame" x="125" y="472" width="164" height="67"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="194" id="Hu1-XH-WuC"/>
-                                    <constraint firstAttribute="height" constant="67" id="uRO-ON-zhn"/>
+                                    <constraint firstAttribute="height" constant="67" id="1nx-eF-Rze"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="164" id="TNH-fX-T0j"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="AVAudioEngine">
@@ -59,19 +74,20 @@
                                 </state>
                                 <connections>
                                     <action selector="audioEngineAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xX1-aY-qV0"/>
-                                    <action selector="audioQueueAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VYu-HQ-5Ma"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KIN-4r-pWk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1bY-5Q-n8X"/>
-                            <constraint firstItem="lXh-Nx-SJe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="LCS-72-SYK"/>
-                            <constraint firstItem="4Rf-6O-fFD" firstAttribute="top" secondItem="lXh-Nx-SJe" secondAttribute="bottom" constant="85" id="eJE-il-Pz5"/>
-                            <constraint firstItem="4Rf-6O-fFD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hrg-iY-U6b"/>
-                            <constraint firstItem="lXh-Nx-SJe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j8c-eg-Vbc"/>
-                            <constraint firstItem="KIN-4r-pWk" firstAttribute="top" secondItem="4Rf-6O-fFD" secondAttribute="bottom" constant="76" id="vBk-6W-cjF"/>
+                            <constraint firstItem="4Rf-6O-fFD" firstAttribute="top" secondItem="lXh-Nx-SJe" secondAttribute="bottom" constant="31" id="IO4-Jk-nRs"/>
+                            <constraint firstItem="mIu-O8-4mu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UEj-tx-u40"/>
+                            <constraint firstItem="4Rf-6O-fFD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aJY-lo-mj9"/>
+                            <constraint firstItem="KIN-4r-pWk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fzn-nx-TxQ"/>
+                            <constraint firstItem="lXh-Nx-SJe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="hqZ-qx-zDm"/>
+                            <constraint firstItem="lXh-Nx-SJe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i7u-Ga-MnZ"/>
+                            <constraint firstItem="mIu-O8-4mu" firstAttribute="top" secondItem="4Rf-6O-fFD" secondAttribute="bottom" constant="43" id="q5t-ic-LpT"/>
+                            <constraint firstItem="KIN-4r-pWk" firstAttribute="top" secondItem="mIu-O8-4mu" secondAttribute="bottom" constant="38" id="wLx-gn-zVo"/>
                         </constraints>
                     </view>
                 </viewController>

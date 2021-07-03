@@ -38,7 +38,18 @@
 - (void)setAudioSession {
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
-    [session setActive:YES error:nil];
+    
+    NSError *error;
+    [session setPreferredSampleRate:44100 error:&error];
+    
+    // I/O buffer时长，在44100采样率下，采样1024个样本大约耗费时间为23ms（ 1024/44100 * 1000ms = 23ms ）
+    // 若对延迟有要求，则可以主动设置更小的时间
+    NSTimeInterval ioBufferDuration = 0.005;
+    [session setPreferredIOBufferDuration:ioBufferDuration error:&error];
+    
+    [session setActive:YES error:&error];
+    
+    NSLog(@"session error: %@", error);
 }
 
 /// 创建engine、node、连接处理链
@@ -95,7 +106,7 @@
     AVAudioFile *file = [[AVAudioFile alloc] initForWriting:fileUrl
                                                    settings:[self.inputNode inputFormatForBus:0].settings
                                                       error:nil];
-
+    NSLog(@"---- %@", [self.inputNode inputFormatForBus:0]);
     [self.mixerNode installTapOnBus:0 bufferSize:4096 format:[self.inputNode inputFormatForBus:0] block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
         [file writeFromBuffer:buffer error:nil];
     }];

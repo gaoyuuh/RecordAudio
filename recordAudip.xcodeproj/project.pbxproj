@@ -10,6 +10,8 @@
 		7335F277268975A90046D085 /* AVAudioEngineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335F276268975A90046D085 /* AVAudioEngineController.m */; };
 		7335F27C268975FA0046D085 /* AVAudioEngineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335F27B268975FA0046D085 /* AVAudioEngineManager.m */; };
 		7335F28026899E920046D085 /* drumLoop.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7335F27E26899D290046D085 /* drumLoop.caf */; };
+		7335F299268D97AE0046D085 /* AudioUnitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335F298268D97AE0046D085 /* AudioUnitController.m */; };
+		7335F29E268D9A9C0046D085 /* AudioUnitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335F29D268D9A9C0046D085 /* AudioUnitManager.m */; };
 		73B9FD5E266B5DE9009D4A20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B9FD5D266B5DE9009D4A20 /* AppDelegate.m */; };
 		73B9FD61266B5DE9009D4A20 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B9FD60266B5DE9009D4A20 /* SceneDelegate.m */; };
 		73B9FD64266B5DE9009D4A20 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B9FD63266B5DE9009D4A20 /* ViewController.m */; };
@@ -32,6 +34,10 @@
 		7335F27A268975FA0046D085 /* AVAudioEngineManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVAudioEngineManager.h; sourceTree = "<group>"; };
 		7335F27B268975FA0046D085 /* AVAudioEngineManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVAudioEngineManager.m; sourceTree = "<group>"; };
 		7335F27E26899D290046D085 /* drumLoop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drumLoop.caf; sourceTree = "<group>"; };
+		7335F297268D97AE0046D085 /* AudioUnitController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioUnitController.h; sourceTree = "<group>"; };
+		7335F298268D97AE0046D085 /* AudioUnitController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioUnitController.m; sourceTree = "<group>"; };
+		7335F29C268D9A9C0046D085 /* AudioUnitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioUnitManager.h; sourceTree = "<group>"; };
+		7335F29D268D9A9C0046D085 /* AudioUnitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioUnitManager.m; sourceTree = "<group>"; };
 		73B9FD59266B5DE9009D4A20 /* recordAudip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordAudip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B9FD5C266B5DE9009D4A20 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73B9FD5D266B5DE9009D4A20 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +89,17 @@
 			path = AVAudioEngine;
 			sourceTree = "<group>";
 		};
+		7335F296268D97920046D085 /* AudioUnit */ = {
+			isa = PBXGroup;
+			children = (
+				7335F297268D97AE0046D085 /* AudioUnitController.h */,
+				7335F298268D97AE0046D085 /* AudioUnitController.m */,
+				7335F29C268D9A9C0046D085 /* AudioUnitManager.h */,
+				7335F29D268D9A9C0046D085 /* AudioUnitManager.m */,
+			);
+			path = AudioUnit;
+			sourceTree = "<group>";
+		};
 		73B9FD50266B5DE9009D4A20 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +120,7 @@
 		73B9FD5B266B5DE9009D4A20 /* recordAudip */ = {
 			isa = PBXGroup;
 			children = (
+				7335F296268D97920046D085 /* AudioUnit */,
 				7335F274268975880046D085 /* AVAudioEngine */,
 				73B9FD9A266F4541009D4A20 /* AVAudioRecorder */,
 				73B9FD99266F4535009D4A20 /* AudioQueue */,
@@ -233,6 +251,8 @@
 				73B9FE7F26706212009D4A20 /* AVAudioRecorderManager.m in Sources */,
 				73B9FD6F266B5DEB009D4A20 /* main.m in Sources */,
 				73B9FD61266B5DE9009D4A20 /* SceneDelegate.m in Sources */,
+				7335F29E268D9A9C0046D085 /* AudioUnitManager.m in Sources */,
+				7335F299268D97AE0046D085 /* AudioUnitController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
