@@ -1,3 +1,9 @@
+## 关于Audio Queues（音频队列）
+
+在本章中，您将了解音频队列的功能、体系结构和内部工作方式。介绍了音频队列、音频队列缓冲区以及音频队列用于录制或播放的回调函数。您还可以了解音频队列状态和参数。本章结束时，您将获得有效使用此技术所需的概念性理解。
+
+
+
 ## What Is an Audio Queue?
 
 Audio Queue（音频队列）是 iOS 或 Mac OS X 中用来 录音 或 播放音频 的软件对象。它由 AudioQueueRef 数据类型表示，在 AudioQueue.h 中声明。AudioToolbox framework中的C语言api，属于Core Audio的一部分

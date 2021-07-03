@@ -84,4 +84,3 @@ Audio units 通常在一个称为音频处理图（*audio processing graph*）�
 - *[Audio Component Services Reference](https://developer.apple.com/documentation/audiounit/audio_component_services)* 描述了在运行时访问音频单元和管理音频单元实例的API。
 - *[Audio Unit Processing Graph Services Reference](https://developer.apple.com/documentation/audiotoolbox/audio_unit_processing_graph_services)* 描述用于构造和操作音频处理图的API，这些图是动态可重构的音频处理链。
 - *[Core Audio Data Types Reference](https://developer.apple.com/documentation/coreaudio/core_audio_data_types)* 描述托管音频单元所需的数据结构和类型。
-

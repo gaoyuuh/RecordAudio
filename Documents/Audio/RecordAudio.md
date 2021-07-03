@@ -526,3 +526,7 @@ AudioFileClose (aqData.mAudioFile);                 // 4
 3. 使用 true 以同步方式(即立即)释放音频队列
 4. 关闭用于录音的音频文件。AudioFileClose函数在 AudioFile.h 中声明
 
+
+
+[Recording Audio](https://developer.apple.com/library/archive/documentation/MusicAudio/Conceptual/AudioQueueProgrammingGuide/AQRecord/RecordingAudio.html#//apple_ref/doc/uid/TP40005343-CH4-SW1)
+
